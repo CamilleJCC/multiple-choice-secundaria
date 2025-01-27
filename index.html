@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacios Misticos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <div class="investigation-container">
+        <div class="left-col">
+            <h1>LAS PUERTAS <br>DE LA PERCEPCIÓN </h1>
+          <h2>El artista francés <span class="semibold">Marcel Jean</span> transformó un simple armario en un contenedor de sueños y temores, como si abriera puertas al inconsciente</h2>
+      <br>
+         <ol><li>Imagina qué sueños y temores esconderías en el armario. Dibuja o describe lo que has imaginado. ¿Resulta fácil dibujar los sueños? ¿Por qué? <br><textarea class="magic-input" placeholder="Escribe aqui tus respuestas"></textarea></li><li>El poeta y pintor William Blake escribió “Si se limpiasen las puertas de la percepción, todas las cosas aparecerían ante el hombre como son: infinitas”. ¿Cómo interpretarías el verso?  ¿Cómo lo relacionarías con el armario de Marcel Jean? <br> <textarea class="magic-input" placeholder="Escribe aqui tus respuestas"></textarea> </li>        
+</ol>
+
+           <div class="response-section">
+                   <!--  <div class="answers-container">
+                   Multiple answers will appear here 
+                </div> 
+                <textarea class="magic-input" placeholder="¿Qué elementos surrealistas ves en esta obra?"></textarea>
+               -->
+                <button class="reveal-btn">Revelar <img src="assets/flecha.svg" width="11px"></button>
+                <div class="tooltip-container">
+    <button class="question-icon" id="questionBtn">?</button>
+    </div>
+            </div>
+        </div>
+
+      <div class="artwork-frame">
+    <img src="assets/1.webp" class="artwork" id="myimage" alt="Remedios Varo, Icono (Icon), 1945">
+    <div class="tooltip-container">
+        <button class="plus-icon" id="plusBtn">+</button>
+    </div>
+    <div class="magnifying-glass">
+        <!-- The magnifying glass effect will be handled by JavaScript -->
+    </div>
+</div>
+    </div>
+    <div class="popup bio-popup" id="bioPopup">
+    <h2>Marcel Jean (1900- 1993)</h2><br>
+    <ul class="dashed"><li>Pintor de origen belga. </li>
+<li>Diseñador textil, pintor, escritor y editor del surrealismo francés.</li> 
+<li>Formado en París, trabajó como diseñador textil en Estados Unidos, Francia y Hungría. </li>
+<li>En los años treinta se unió al grupo surrealista de André Breton.  </li>
+<li>Participó en exposiciones colectivas sobre el surrealismo en el MoMA de Nueva York y en París. </li>
+<li>Documentó importantes crónicas y antologías sobre artistas del grupo surrealista.</li>
+        </ul>
+<p>Marcel Jean, <span class="italic">Armario surrealista,</span> 1941</p>
+    <button class="close-btn">×</button>
+</div>
+
+<div class="popups-container">
+    <div class="popup transport-popup" id="answer1Popup">
+        <p class="answer-text"></p>
+        <button class="close-btn">×</button>
+    </div>
+    <div class="popup transport-popup" id="answer2Popup">
+        <p class="answer-text"></p>
+        <button class="close-btn">×</button>
+    </div>
+    <div class="popup transport-popup" id="answer3Popup">
+        <p class="answer-text"></p>
+        <button class="close-btn">×</button>
+    </div>
+</div>
+    <div class="popup bio-popup" id="questionPopup">
+    <p><span class="semibold">¿Sabías que...?</span><br><br>
+    El verso de William Blake dio nombre al grupo de música The Doors, un grupo que también quiso romper con la música que les precedía y cuyo líder, cantante y letrista también tuvo que vivir una guerra en primera línea: la de Vietnam. ¿Quieres escuchar su música? </p>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/22WZ7M8sxp5THdruNY3gXt?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <button class="close-btn">×</button>
+</div>
+<div class="overlay" id="overlay"></div>
+</body>
+</html>
