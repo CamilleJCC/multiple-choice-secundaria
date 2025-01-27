@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const magnifier = document.querySelector('.magnifying-glass');
     const artwork = document.querySelector('.artwork');
     const revealBtn = document.querySelector('.reveal-btn');
-    const inputs = document.querySelectorAll('.magic-input');
+    const themeButtons = document.querySelectorAll('.theme-btn');
     const plusBtn = document.getElementById('plusBtn');
     const questionBtn = document.getElementById('questionBtn');
     const bioPopup = document.getElementById('bioPopup');
@@ -60,32 +60,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getRandomColor() {
-        const colors = [
-            '#b5f0de',
-            '#fab8a1',
-            '#faf7ba',
-            '#c2b2ff'
-        ];
+        const colors = ['#b5f0de', '#fab8a1', '#faf7ba', '#c2b2ff'];
         return colors[Math.floor(Math.random() * colors.length)];
     }
 
-    function showAnswerPopup(answer, index) {
-        overlay.style.display = 'block';
-        const popup = document.getElementById(`answer${index + 1}Popup`);
-        popup.querySelector('.answer-text').textContent = answer;
-        popup.style.display = 'block';
-        setTimeout(() => {
-            popup.classList.add('show');
-        }, 10);
-    }
-
-    function handleReveal() {
-        inputs.forEach((input, index) => {
-            if (input.value.trim()) {
-                showAnswerPopup(input.value, index);
-            }
+    // Theme selection functionality
+    themeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('selected');
+            createSparkles(btn);
         });
-    }
+    });
 
     // Event Listeners
     artwork.addEventListener('mousemove', updateZoom);
@@ -131,15 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.style.display = 'none';
     });
 
-    revealBtn.addEventListener('click', handleReveal);
-    
-    inputs.forEach(input => {
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                handleReveal();
-            }
-        });
+    // Reveal button functionality
+    revealBtn.addEventListener('click', () => {
+        const selectedThemes = Array.from(document.querySelectorAll('.theme-btn.selected'))
+            .map(btn => btn.dataset.theme);
+        // Add your reveal logic here for selected themes
+        createSparkles(revealBtn);
     });
 });
 
